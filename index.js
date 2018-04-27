@@ -5,7 +5,7 @@ const low = require('lowdb')
 const FlieSync = require('lowdb/adapters/FileSync')
 
 const adapetr = new FlieSync('database.json');
-const db = low(adapter);
+const db = low(adapters);
 
 db.defaults({ histoires: [], xp: []}).write()
 
