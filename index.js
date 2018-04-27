@@ -12,7 +12,7 @@ var bot = new Discord.Client();
 var prefix = ("+")
 
 bot.on('ready', function() {
-    bot.user.setGame("Command: +help vAlpha");
+    bot.user.setActivity("Command: +help vAlpha");
     console.log("Connected");
 });
 
