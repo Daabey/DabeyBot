@@ -56,7 +56,7 @@ bot.on('message', message => {
         message.channel.send({embed: xp_embed});   
  
     }} 
-    bot.on("guildMemberAdd", member => {
+      bot.on("guildMemberAdd", member => {
 
         const channel = member.guild.channels.find("name", "général") ;
         if (!channel) return;
@@ -69,6 +69,8 @@ bot.on('message', message => {
          bot.on("guildMemberRemove", member => {
           const channel = member.guild.channels.find("name", "général") ;
           if (!channel) return;
-          channel.send(`${member} Viens de quitter bye bye`);
-                })
-            })
+          channel.send(`${member} Viens de quitter bye bye`)
+                
+        })
+           
+    })
