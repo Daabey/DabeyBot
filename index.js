@@ -60,7 +60,7 @@ bot.on('message', message => {
 
         const channel = member.guild.channels.find("name", "général") ;
         if (!channel) return;
-        channel.send(`Bienvenue ${member}`);
+        channel.send(`Bienvenue ${member}`) ;
         
              var role = member.guild.roles.find('name', 'Members');
                   member.addRole(role);
@@ -69,7 +69,7 @@ bot.on('message', message => {
          bot.on("guildMemberRemove", member => {
           const channel = member.guild.channels.find("name", "général") ;
           if (!channel) return;
-          channel.send(`${member} Viens de quitter bye bye`)
+          channel.send(`${member} Viens de quitter bye bye`) ;
                 
         })
            
