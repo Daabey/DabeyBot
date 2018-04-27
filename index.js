@@ -72,4 +72,3 @@ bot.on('message', message => {
           channel.send(`${member} Viens de quitter bye bye`);
                 })
             })
-
