@@ -4,7 +4,8 @@ const bot = new Discord.Client();
 const low = require('lowdb')
 const FlieSync = require('lowdb/adapters/FileSync')
 
-const adapetr = new FlieSync('database.json');
+const adapter = new FlieSync('database.json');
+const db = low(adapter);
 
 db.defaults({ histoires: [], xp: []}).write()
 
