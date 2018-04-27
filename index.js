@@ -1,4 +1,3 @@
-
 const Discord = require('discord.js');
 const low = require('lowdb')
 const FlieSync = require('lowdb/adapters/FileSync')
@@ -22,7 +21,7 @@ bot.login(process.env.TOKEN);
 bot.on('message', message => {
  
     if (message.content === prefix + "help"){
-        message.channel.send("Liste des commande: /n -*help");
+        message.channel.send("Pour le Momemnt y'a que +xp c est une version d'alpha");
     }
 
     if (message.content === "Daabey <3"){
@@ -55,5 +54,15 @@ bot.on('message', message => {
             .addField("XP:", `${xpfinal[1]} xp`)
             .setFooter("Enjoy :p Daabey <3")
         message.channel.send({embed: xp_embed});   
-    
+ 
+        bot.on("guildMemberAdd", member => {
+            member.guild.channels.find("name", "general").send(`Bienvenue ${member}`);
+
+     var role = member.guild.roles.find('name', 'Members');
+          member.addRole(role);
+
+        })
+        bot.on("guildMemberRemove", member => {
+            member.guild.channels.find("name", "general").send(`${member} Viens de quitter bye bye`);
+        })
     }}})
