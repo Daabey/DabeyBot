@@ -22,7 +22,7 @@ bot.login(process.env.TOKEN);
 bot.on('message', message => {
  
     if (message,content === prefix + "help"){
-        message.channel.sendMessage("Liste des commande: /n -*help");
+        message.channel.send("Liste des commande: /n -*help");
     }
 
     if (message.content === "Daabey <3"){
