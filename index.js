@@ -58,7 +58,6 @@ bot.on('message', message => {
     }} 
       
     bot.on("guildMemberAdd", member => {
-
 const channel = member.guild.channels.find("name", "général") ;
 if (!channel) return;
 channel.send(`Bienvenue ${member}`);
