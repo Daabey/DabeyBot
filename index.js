@@ -57,19 +57,20 @@ bot.on('message', message => {
  
     }} 
       
-    bot.on("guildMemberAdd", member => {
+   bot.on("guildMemberAdd", member => {
+
 const channel = member.guild.channels.find("name", "général") ;
 if (!channel) return;
 channel.send(`Bienvenue ${member}`);
 
      var role = member.guild.roles.find('name', 'membres');
           member.addRole(role);
-})
+});
        
  bot.on("guildMemberRemove", member => {
   const channel = member.guild.channels.find("name", "général") ;
   if (!channel) return;
   channel.send(`${member} Viens de quitter bye bye`);
-        })
+        });
            
     })
