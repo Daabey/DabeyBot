@@ -9,6 +9,7 @@ const db = low(adapter);
 
 db.defaults({ histoires: [], xp: []}).write()
 
+var bot = new Discord.Client();
 var prefix = ("+")
 
 bot.on('ready', function() {
