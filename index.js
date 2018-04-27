@@ -55,14 +55,21 @@ bot.on('message', message => {
             .setFooter("Enjoy :p Daabey <3")
         message.channel.send({embed: xp_embed});   
  
-        bot.on("guildMemberAdd", member => {
-            member.guild.channels.find("name", "general").send(`Bienvenue ${member}`);
+    }} 
+    bot.on("guildMemberAdd", member => {
 
-     var role = member.guild.roles.find('name', 'Members');
-          member.addRole(role);
+        const channel = member.guild.channels.find("name", "général") ;
+        if (!channel) return;
+        channel.send(`Bienvenue ${member}`);
+        
+             var role = member.guild.roles.find('name', 'Members');
+                  member.addRole(role);
+        })
+               
+         bot.on("guildMemberRemove", member => {
+          const channel = member.guild.channels.find("name", "général") ;
+          if (!channel) return;
+          channel.send(`${member} Viens de quitter bye bye`);
+                })
+            })
 
-        })
-        bot.on("guildMemberRemove", member => {
-            member.guild.channels.find("name", "general").send(`${member} Viens de quitter bye bye`);
-        })
-    }}})
