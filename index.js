@@ -36,7 +36,7 @@ const commands = {
 				msg.member.voiceChannel.leave();
 			});
 			msg.channel.sendMessage(`Playing: **${song.title}** as requested by: **${song.requester}**`);
-			dispatcher = msg.guild.voiceConnection.playStream(yt(song.url, { audioonly: true }), { passes : tokens.passes });
+			dispatcher = msg.guild.voiceConnection.playStream(yt(song.url, { audioonly: true });
 			let collector = msg.channel.createCollector(m => m);
 			collector.on('message', m => {
 				if (m.content.startsWith(prefix + 'pause')) {
