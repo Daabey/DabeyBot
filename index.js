@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const YTDL = require("ytdl-core");
 const low = require('lowdb')
 const FlieSync = require('lowdb/adapters/FileSync')
 
@@ -8,22 +7,8 @@ const db = low(adapter);
 
 db.defaults({ histoires: [], xp: []}).write()
 
-function play(connection, message) {
-    var servers = servers[message.guild.id];
-
-    server.dispatcher = connection.playStream(YTDL(server.queue[0],{filter: "audioonly"}));
-
-    server.queue.shift();
-
-    server.dispatcher.on("end", function() {
-        if (server.queue[0]) play(connection, message);
-        else connection.disconnect();
-});
-}
-
 var bot = new Discord.Client();
 var prefix = ("+")
-var servers = {};
 
 bot.on('ready', function() {
     bot.user.setActivity("Command: +help vAlpha");
@@ -36,7 +21,7 @@ bot.login(process.env.TOKEN);
 bot.on('message', message => {
  
     if (message.content === prefix + "help"){
-        message.channel.send("Pour le Momement y'a que +xp c est une version d'alpha");
+        message.channel.send("Pour le Moment y'a que +xp c est une version d'alpha");
     }
 
     if (message.content === "Daabey <3"){
@@ -87,36 +72,3 @@ bot.on("guildMemberAdd", member => {
       if (!channel) return;
       channel.send(`${member} Viens de quitter bye bye`);
             });
-    
-        switch (args[0].toLowerCase()) {
-            case "play":
-            if (!args[1]) {
-                message.channel.sendMessag("veuillez fournir un lien !");
-                return;
-            }
-           
-            if (!message.member.voiceChannel) {
-                message.channel.sendMessage("Tu dois etre dans un voice channel !")
-                return;
-            }
-            if(!servers[message.guild.id]) servers[message.guild.id] = {
-                queue: []
-            };
-             
-                    var server = servers[message.guild.id];
-
-                    server.queue.push(args[1]);
-
-                    if (!message.guild.voiceConnection) message.member.voiceChannel.join().then(function(connection) {
-                        play(connection, message);
-                    });
-                    break;
-                case "skip":
-                 var server = servers[message.guild.id];
-
-                 if(server.dispatcher) server.dispatcher.end();
-                 break;
-                case "stop":
-                var server = servers[message.guild.id];
-
-                if(message.guild.voiceConnection) message.guild.voiceConnection.disconnect();
