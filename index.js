@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const yt = require('ytdl-core');
-const tokens = require('./tokens.json');
 const low = require('lowdb')
 const FlieSync = require('lowdb/adapters/FileSync')
 
